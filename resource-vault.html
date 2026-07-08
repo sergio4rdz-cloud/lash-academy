@@ -1,0 +1,43 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Resource Vault</title><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@600;700&family=Inter:wght@400;500;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css"></head><body>
+<nav class="nav">
+  <div class="nav-inner">
+    <a class="brand" href="index.html">The Lash Academy</a>
+    <div class="nav-links">
+      <a href="index.html#curriculum">Curriculum</a>
+      <a href="dashboard.html">Dashboard</a>
+      <a href="resource-vault.html">Vault</a>
+      <a href="certificate.html">Certificate</a>
+    </div>
+    <div class="toggle">
+      <button id="enBtn" class="active" onclick="setLang('en')">English</button>
+      <button id="esBtn" onclick="setLang('es')">Español</button>
+    </div>
+  </div>
+</nav>
+
+<main class="wrap">
+  <section>
+    <div class="lang active" data-lang="en"><div class="eyebrow">Resource Vault</div><h1>Downloads & Supplies</h1><p>Free starter resources for the course.</p></div>
+    <div class="lang" data-lang="es"><div class="eyebrow">Bóveda de Recursos</div><h1>Descargas y Suministros</h1><p>Recursos gratis para empezar el curso.</p></div>
+  </section>
+  <section class="grid">
+    <div class="card"><h3>Starter Kit</h3><ul class="checklist"><li>Lash trays</li><li>Adhesive</li><li>Tweezers</li><li>Tape</li><li>Gel pads</li><li>Hygrometer</li><li>Ring light</li></ul></div>
+    <div class="card"><h3>Forms / Formas</h3><a class="download" href="downloads/student-workbook.txt">Student Workbook</a><a class="download" href="downloads/practice-log.txt">Practice Log</a><a class="download" href="downloads/client-consultation.txt">Client Consultation</a></div>
+    <div class="card"><h3>Business</h3><ul class="checklist"><li>Pricing draft</li><li>Booking policy</li><li>Aftercare card</li><li>Social media ideas</li></ul></div>
+  </section>
+</main>
+<div class="footer">The Lash Academy · Founding Edition · Free GitHub Pages Version</div>
+<script>
+function setLang(lang){
+  localStorage.setItem('lashLang', lang);
+  document.querySelectorAll('.lang').forEach(el => el.classList.toggle('active', el.dataset.lang === lang));
+  document.querySelectorAll('#enBtn').forEach(btn => btn.classList.toggle('active', lang === 'en'));
+  document.querySelectorAll('#esBtn').forEach(btn => btn.classList.toggle('active', lang === 'es'));
+  document.documentElement.lang = lang;
+}
+setLang(localStorage.getItem('lashLang') || 'en');
+</script>
+</body></html>
